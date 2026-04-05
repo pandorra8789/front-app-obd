@@ -63,30 +63,39 @@ export function Features() {
           </p>
         </div>
 
-        {/* Features grid with line dividers */}
+        {/* Features grid with proper line dividers */}
         <div className="relative mt-20">
-          {/* Grid container with CSS grid lines */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
+          {/* Grid container - 3 columns with proper borders */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 border border-border/20 rounded-xl overflow-hidden">
             {features.map((feature, index) => {
-              // Calculate position for border logic
-              const isLastRow = index >= features.length - (features.length % 3 || 3);
-              const isRightColumn = (index + 1) % 3 === 0;
-              const isMiddleColumn = (index + 1) % 3 === 2;
+              // Row and column calculation for 6 items in 3 columns
+              const row = Math.floor(index / 3);
+              const col = index % 3;
+              const isLastRow = row === 1; // Only 2 rows (0 and 1)
+              const isLastCol = col === 2;
+              
+              // For small screens (2 columns)
+              const smRow = Math.floor(index / 2);
+              const smCol = index % 2;
+              const smIsLastRow = smRow === 2; // 3 rows for 2 columns
+              const smIsLastCol = smCol === 1;
               
               return (
                 <div
                   key={feature.title}
                   className={`
-                    group relative p-8 lg:p-10 transition-all duration-300
-                    ${!isLastRow ? 'border-b border-border/30' : ''}
-                    ${!isRightColumn ? 'lg:border-r lg:border-border/30' : ''}
-                    ${index % 2 === 0 ? 'sm:border-r sm:border-border/30 lg:border-r-0' : 'sm:border-r-0'}
-                    ${isMiddleColumn ? 'lg:border-r lg:border-border/30' : ''}
-                    hover:bg-gradient-to-br hover:from-primary/[0.02] hover:to-accent/[0.02]
+                    relative p-8 lg:p-10
+                    ${!isLastRow ? 'lg:border-b lg:border-border/20' : ''}
+                    ${!isLastCol ? 'lg:border-r lg:border-border/20' : ''}
+                    ${!smIsLastRow ? 'sm:border-b sm:border-border/20 lg:border-b-0' : ''}
+                    ${!smIsLastCol ? 'sm:border-r sm:border-border/20 lg:border-r-0' : ''}
+                    ${index < features.length - 1 ? 'border-b border-border/20 sm:border-b-0' : ''}
+                    ${!isLastRow ? 'lg:border-b lg:border-border/20' : ''}
+                    ${!isLastCol ? 'lg:border-r lg:border-border/20' : ''}
                   `}
                 >
                   {/* Feature number - subtle */}
-                  <div className="absolute top-6 right-6 text-5xl font-bold text-muted/20 select-none lg:top-8 lg:right-8">
+                  <div className="absolute top-6 right-6 text-5xl font-bold text-muted/15 select-none lg:top-8 lg:right-8">
                     {String(index + 1).padStart(2, '0')}
                   </div>
                   
