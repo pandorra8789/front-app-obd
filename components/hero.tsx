@@ -6,31 +6,33 @@ import { ArrowRight, Scan, Sparkles } from "lucide-react";
 
 export function Hero() {
   return (
-    <section className="relative min-h-[90vh] overflow-hidden bg-background">
-      {/* Subtle grid background */}
-      <div className="absolute inset-0 isometric-grid opacity-40" />
+    <section className="relative min-h-[90vh] overflow-hidden bg-background -mt-16 pt-16">
+      {/* Grid background - extends under header */}
+      <div className="absolute inset-0 isometric-grid opacity-50" />
       
-      {/* Gradient overlays */}
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-background/50 to-background" />
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,oklch(0.55_0.14_165_/_0.08),transparent_50%)]" />
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,oklch(0.55_0.12_240_/_0.06),transparent_50%)]" />
+      {/* Soft gradient overlay - starts below header area */}
+      <div className="absolute inset-0 top-20 bg-gradient-to-b from-transparent via-background/30 to-background/80" />
+      
+      {/* Soft radial accents */}
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_50%_-20%,oklch(0.55_0.14_165_/_0.06),transparent)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_80%_80%,oklch(0.55_0.12_240_/_0.04),transparent)]" />
 
-      {/* Decorative lines */}
-      <div className="absolute left-0 right-0 top-1/3 h-px bg-gradient-to-r from-transparent via-primary/20 to-transparent" />
-      <div className="absolute left-0 right-0 top-2/3 h-px bg-gradient-to-r from-transparent via-accent/15 to-transparent" />
+      {/* Decorative horizontal lines */}
+      <div className="absolute left-0 right-0 top-1/3 h-px bg-gradient-to-r from-transparent via-primary/15 to-transparent" />
+      <div className="absolute left-0 right-0 top-2/3 h-px bg-gradient-to-r from-transparent via-accent/10 to-transparent" />
 
-      <div className="relative mx-auto max-w-6xl px-4 py-20 sm:px-6 sm:py-28 lg:px-8 lg:py-32">
-        <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
+      <div className="relative mx-auto max-w-6xl px-4 py-24 sm:px-6 sm:py-32 lg:px-8 lg:py-40">
+        <div className="grid items-center gap-16 lg:grid-cols-2 lg:gap-20">
           {/* Left content */}
-          <div className="text-center lg:text-left">
+          <div className="flex flex-col items-center text-center lg:items-start lg:text-left">
             {/* Badge */}
-            <div className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-4 py-2 text-sm text-primary">
+            <div className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/5 px-4 py-2 text-sm font-medium text-primary">
               <Sparkles className="h-4 w-4" />
               <span>OBD2 диагностика с AI-аналитикой</span>
             </div>
 
             {/* Heading */}
-            <h1 className="mt-8 text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl">
+            <h1 className="mt-8 text-4xl font-bold leading-tight tracking-tight sm:text-5xl lg:text-6xl">
               <span className="text-foreground">Unified</span>
               <br />
               <span className="gradient-text">Vehicle</span>
@@ -39,16 +41,16 @@ export function Hero() {
             </h1>
 
             {/* Subtitle */}
-            <p className="mx-auto mt-6 max-w-xl text-lg leading-relaxed text-muted-foreground lg:mx-0">
+            <p className="mt-6 max-w-lg text-lg leading-relaxed text-muted-foreground">
               Сканируйте ошибки автомобиля, анализируйте их с помощью AI и
               получайте точные рекомендации по устранению неисправностей в
               режиме реального времени.
             </p>
 
             {/* CTA Buttons */}
-            <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row lg:justify-start">
+            <div className="mt-10 flex flex-col gap-4 sm:flex-row">
               <Button asChild size="lg" variant="glow">
-                <Link href="/downloads">
+                <Link href="/downloads" className="flex items-center gap-2">
                   Скачать приложение
                   <ArrowRight className="h-5 w-5" />
                 </Link>
@@ -60,10 +62,10 @@ export function Hero() {
           </div>
 
           {/* Right - Isometric car visualization */}
-          <div className="relative flex items-center justify-center lg:justify-end">
-            <div className="relative h-80 w-80 sm:h-96 sm:w-96">
+          <div className="relative flex items-center justify-center">
+            <div className="relative h-72 w-72 sm:h-80 sm:w-80 lg:h-96 lg:w-96">
               {/* Outer subtle ring */}
-              <div className="absolute inset-0 animate-pulse rounded-full border border-primary/15 opacity-60" />
+              <div className="absolute inset-0 animate-pulse rounded-full border border-primary/10" />
               
               {/* Data flow lines */}
               <svg className="absolute inset-0 h-full w-full" viewBox="0 0 400 400">
@@ -72,7 +74,7 @@ export function Hero() {
                   d="M50 300 Q 100 250, 200 200 T 350 100"
                   fill="none"
                   stroke="url(#gradient1)"
-                  strokeWidth="2"
+                  strokeWidth="1.5"
                   className="glow-line animate-pulse"
                   strokeDasharray="10 5"
                 />
@@ -80,7 +82,7 @@ export function Hero() {
                   d="M30 350 Q 150 300, 200 200 T 380 150"
                   fill="none"
                   stroke="url(#gradient2)"
-                  strokeWidth="2"
+                  strokeWidth="1.5"
                   className="glow-line"
                   style={{ animationDelay: "0.5s" }}
                   strokeDasharray="8 4"
@@ -89,7 +91,7 @@ export function Hero() {
                   d="M80 380 Q 180 320, 220 220 T 370 80"
                   fill="none"
                   stroke="url(#gradient3)"
-                  strokeWidth="1.5"
+                  strokeWidth="1"
                   className="glow-line animate-pulse"
                   style={{ animationDelay: "1s" }}
                   strokeDasharray="6 6"
@@ -145,26 +147,26 @@ export function Hero() {
                   <circle cx="220" cy="135" r="20" stroke="oklch(0.55 0.12 240)" strokeWidth="1.5" className="glow-line" />
                   <circle cx="220" cy="135" r="12" stroke="oklch(0.55 0.14 165)" strokeWidth="1" />
                   {/* OBD port indicator */}
-                  <circle cx="150" cy="120" r="8" fill="oklch(0.55 0.14 165 / 0.2)" stroke="oklch(0.55 0.14 165)" strokeWidth="1.5" className="animate-pulse" />
+                  <circle cx="150" cy="120" r="8" fill="oklch(0.55 0.14 165 / 0.15)" stroke="oklch(0.55 0.14 165)" strokeWidth="1.5" className="animate-pulse" />
                 </svg>
               </div>
 
               {/* Floating data badges */}
-              <div className="absolute -right-4 top-12 rounded-lg border border-primary/20 bg-card px-4 py-3 shadow-lg sm:-right-8">
+              <div className="absolute -right-2 top-8 rounded-xl border border-primary/15 bg-card/90 px-4 py-3 shadow-lg backdrop-blur-sm sm:-right-6 sm:top-12">
                 <div className="text-xs text-muted-foreground">Код ошибки</div>
                 <div className="font-mono text-lg font-bold text-primary">
                   P0420
                 </div>
               </div>
 
-              <div className="absolute -left-4 bottom-16 rounded-lg border border-accent/20 bg-card px-4 py-3 shadow-lg sm:-left-12">
+              <div className="absolute -left-2 bottom-12 rounded-xl border border-accent/15 bg-card/90 px-4 py-3 shadow-lg backdrop-blur-sm sm:-left-10 sm:bottom-16">
                 <div className="text-xs text-muted-foreground">AI анализ</div>
                 <div className="text-sm font-semibold text-accent">
                   Катализатор
                 </div>
               </div>
 
-              <div className="absolute bottom-4 right-8 rounded-lg border border-border bg-card px-3 py-2 shadow-lg">
+              <div className="absolute bottom-2 right-6 rounded-xl border border-border/50 bg-card/90 px-3 py-2 shadow-lg backdrop-blur-sm sm:bottom-4 sm:right-8">
                 <div className="flex items-center gap-2">
                   <Scan className="h-4 w-4 text-primary" />
                   <span className="text-xs font-medium text-foreground">Сканирование...</span>
