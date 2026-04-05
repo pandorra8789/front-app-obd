@@ -25,7 +25,7 @@ const tiers = [
     period: "месяц",
     description: "Расширенные инструменты для автолюбителей и энтузиастов",
     buttonText: "Выбрать Pro",
-    buttonVariant: "default" as const,
+    buttonVariant: "glow" as const,
     highlighted: true,
   },
   {
@@ -127,24 +127,33 @@ const faqs = [
 
 function FeatureValue({ value }: { value: boolean | string }) {
   if (typeof value === "string") {
-    return <span className="text-sm font-medium text-foreground">{value}</span>;
+    return <span className="text-sm font-medium text-primary">{value}</span>;
   }
   if (value) {
-    return <Check className="h-5 w-5 text-primary" />;
+    return (
+      <div className="flex h-5 w-5 items-center justify-center rounded-full bg-primary/10">
+        <Check className="h-3.5 w-3.5 text-primary" />
+      </div>
+    );
   }
-  return <X className="h-5 w-5 text-muted-foreground/40" />;
+  return <X className="h-5 w-5 text-muted-foreground/30" />;
 }
 
 export default function PricingPage() {
   return (
-    <div className="py-16 sm:py-24">
-      <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+    <div className="relative py-16 sm:py-24">
+      {/* Background */}
+      <div className="absolute inset-0 isometric-grid opacity-10" />
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-background to-background" />
+
+      <div className="relative mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center">
-          <h1 className="text-balance text-3xl font-bold tracking-tight text-foreground sm:text-4xl lg:text-5xl">
-            Выберите свой тариф
+          <h1 className="text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">
+            <span className="text-foreground">Выберите свой </span>
+            <span className="gradient-text">тариф</span>
           </h1>
-          <p className="mx-auto mt-4 max-w-2xl text-pretty text-lg text-muted-foreground">
+          <p className="mx-auto mt-4 max-w-2xl text-lg text-muted-foreground">
             Прозрачные цены без скрытых платежей. Начните бесплатно и
             обновляйтесь по мере необходимости.
           </p>
@@ -156,19 +165,22 @@ export default function PricingPage() {
             <div
               key={tier.name}
               className={cn(
-                "relative flex flex-col rounded-2xl border p-6 sm:p-8",
+                "relative flex flex-col rounded-2xl border p-6 backdrop-blur-sm transition-all duration-300 sm:p-8",
                 tier.highlighted
-                  ? "border-primary bg-primary/5 shadow-lg ring-1 ring-primary"
-                  : "border-border bg-card"
+                  ? "border-primary/50 bg-gradient-to-b from-primary/10 to-card glow-orange"
+                  : "border-border/50 bg-card/50 hover:border-primary/30 hover:bg-card"
               )}
             >
               {tier.highlighted && (
-                <div className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-primary px-4 py-1 text-xs font-medium text-primary-foreground">
+                <div className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-primary px-4 py-1 text-xs font-semibold text-primary-foreground">
                   Популярный
                 </div>
               )}
 
-              <h2 className="text-xl font-semibold text-card-foreground">
+              <h2 className={cn(
+                "text-xl font-semibold",
+                tier.highlighted ? "text-primary" : "text-card-foreground"
+              )}>
                 {tier.name}
               </h2>
               <p className="mt-2 text-sm text-muted-foreground">
@@ -176,7 +188,10 @@ export default function PricingPage() {
               </p>
 
               <div className="mt-6">
-                <span className="text-4xl font-bold text-card-foreground">
+                <span className={cn(
+                  "text-4xl font-bold",
+                  tier.highlighted ? "gradient-text" : "text-card-foreground"
+                )}>
                   {tier.price}
                 </span>
                 {tier.period && (
@@ -197,18 +212,19 @@ export default function PricingPage() {
 
         {/* Feature comparison table */}
         <div className="mt-24">
-          <h2 className="text-center text-2xl font-bold text-foreground sm:text-3xl">
-            Сравнение возможностей
+          <h2 className="text-center text-2xl font-bold sm:text-3xl">
+            <span className="text-foreground">Сравнение </span>
+            <span className="gradient-text">возможностей</span>
           </h2>
 
-          <div className="mt-12 overflow-hidden rounded-xl border border-border">
+          <div className="mt-12 overflow-hidden rounded-2xl border border-border/50">
             <table className="w-full">
               <thead>
-                <tr className="border-b border-border bg-muted/50">
+                <tr className="border-b border-border/50 bg-muted/30">
                   <th className="px-6 py-4 text-left text-sm font-semibold text-foreground">
                     Возможность
                   </th>
-                  <th className="px-6 py-4 text-center text-sm font-semibold text-foreground">
+                  <th className="px-6 py-4 text-center text-sm font-semibold text-muted-foreground">
                     Бесплатный
                   </th>
                   <th className="px-6 py-4 text-center text-sm font-semibold text-primary">
@@ -219,9 +235,9 @@ export default function PricingPage() {
                   </th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-border">
+              <tbody className="divide-y divide-border/50">
                 {features.map((feature) => (
-                  <tr key={feature.name} className="bg-card">
+                  <tr key={feature.name} className="bg-card/30 transition-colors hover:bg-card/50">
                     <td className="px-6 py-4 text-sm text-card-foreground">
                       {feature.name}
                     </td>
@@ -249,18 +265,21 @@ export default function PricingPage() {
 
         {/* FAQ */}
         <div className="mt-24">
-          <h2 className="text-center text-2xl font-bold text-foreground sm:text-3xl">
-            Часто задаваемые вопросы
+          <h2 className="text-center text-2xl font-bold sm:text-3xl">
+            <span className="text-foreground">Часто задаваемые </span>
+            <span className="gradient-text">вопросы</span>
           </h2>
 
-          <div className="mx-auto mt-12 max-w-3xl divide-y divide-border rounded-xl border border-border">
+          <div className="mx-auto mt-12 max-w-3xl divide-y divide-border/50 rounded-2xl border border-border/50 bg-card/30 backdrop-blur-sm">
             {faqs.map((faq) => (
               <div key={faq.question} className="p-6">
-                <h3 className="flex items-center gap-2 font-semibold text-foreground">
-                  <HelpCircle className="h-5 w-5 text-primary" />
+                <h3 className="flex items-center gap-3 font-semibold text-foreground">
+                  <div className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-primary/10">
+                    <HelpCircle className="h-4 w-4 text-primary" />
+                  </div>
                   {faq.question}
                 </h3>
-                <p className="mt-3 text-muted-foreground">{faq.answer}</p>
+                <p className="mt-3 pl-9 text-muted-foreground">{faq.answer}</p>
               </div>
             ))}
           </div>

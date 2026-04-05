@@ -31,6 +31,7 @@ const pricingTiers: PricingTier[] = [
     ],
     highlighted: true,
     buttonText: "Выбрать Pro",
+    buttonVariant: "glow",
   },
   {
     name: "Premium",
@@ -51,14 +52,18 @@ const pricingTiers: PricingTier[] = [
 
 export function PricingPreview() {
   return (
-    <section className="py-20 sm:py-28">
-      <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+    <section className="relative py-20 sm:py-28">
+      {/* Background */}
+      <div className="absolute inset-0 bg-gradient-to-t from-muted/20 via-transparent to-transparent" />
+      
+      <div className="relative mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         {/* Section header */}
         <div className="text-center">
-          <h2 className="text-balance text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
-            Выберите свой тариф
+          <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
+            <span className="text-foreground">Выберите свой </span>
+            <span className="gradient-text">тариф</span>
           </h2>
-          <p className="mx-auto mt-4 max-w-2xl text-pretty text-lg text-muted-foreground">
+          <p className="mx-auto mt-4 max-w-2xl text-lg text-muted-foreground">
             Начните бесплатно и обновляйтесь по мере необходимости. Прозрачные
             цены без скрытых платежей.
           </p>
@@ -73,7 +78,7 @@ export function PricingPreview() {
 
         {/* CTA */}
         <div className="mt-12 text-center">
-          <Button asChild variant="link">
+          <Button asChild variant="link" className="text-primary">
             <Link href="/pricing">
               Подробнее о тарифах
               <ArrowRight className="h-4 w-4" />
