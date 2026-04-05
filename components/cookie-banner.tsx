@@ -27,15 +27,15 @@ export function CookieBanner() {
   if (!isVisible) return null;
 
   return (
-    <div className="fixed bottom-0 left-0 right-0 z-50 border-t border-border bg-card p-4 shadow-lg sm:bottom-4 sm:left-4 sm:right-auto sm:max-w-md sm:rounded-lg sm:border">
+    <div className="fixed bottom-0 left-0 right-0 z-50 border-t border-border/50 bg-card/95 p-4 shadow-2xl backdrop-blur-xl sm:bottom-4 sm:left-4 sm:right-auto sm:max-w-md sm:rounded-xl sm:border">
       <div className="flex items-start gap-4">
         <div className="flex-1">
-          <p className="text-sm text-card-foreground">
+          <p className="text-sm leading-relaxed text-card-foreground">
             Мы используем файлы cookie для улучшения работы сайта и аналитики.
             Продолжая использовать сайт, вы соглашаетесь с использованием cookie.
           </p>
           <div className="mt-4 flex flex-wrap gap-3">
-            <Button size="sm" onClick={handleAccept}>
+            <Button size="sm" variant="glow" onClick={handleAccept}>
               Принять
             </Button>
             <Button size="sm" variant="outline" onClick={handleDecline}>
@@ -45,7 +45,7 @@ export function CookieBanner() {
         </div>
         <button
           onClick={handleDecline}
-          className="text-muted-foreground hover:text-foreground"
+          className="rounded-lg p-1 text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
           aria-label="Close"
         >
           <X className="h-5 w-5" />

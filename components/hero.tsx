@@ -1,84 +1,174 @@
+"use client";
+
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Scan, Sparkles } from "lucide-react";
 
 export function Hero() {
   return (
-    <section className="relative overflow-hidden bg-background">
-      {/* Background pattern */}
-      <div className="absolute inset-0 -z-10">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(59,130,180,0.08),transparent_50%)]" />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_80%,rgba(45,170,150,0.06),transparent_50%)]" />
-      </div>
+    <section className="relative min-h-[90vh] overflow-hidden bg-background">
+      {/* Subtle grid background */}
+      <div className="absolute inset-0 isometric-grid opacity-40" />
+      
+      {/* Gradient overlays */}
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-background/50 to-background" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,oklch(0.55_0.14_165_/_0.08),transparent_50%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,oklch(0.55_0.12_240_/_0.06),transparent_50%)]" />
 
-      <div className="mx-auto max-w-6xl px-4 py-20 sm:px-6 sm:py-28 lg:px-8 lg:py-32">
-        <div className="text-center">
-          {/* Badge */}
-          <div className="inline-flex items-center gap-2 rounded-full border border-border bg-muted/50 px-4 py-1.5 text-sm text-muted-foreground">
-            <Sparkles className="h-4 w-4 text-primary" />
-            <span>OBD2 диагностика с AI-аналитикой</span>
-          </div>
+      {/* Decorative lines */}
+      <div className="absolute left-0 right-0 top-1/3 h-px bg-gradient-to-r from-transparent via-primary/20 to-transparent" />
+      <div className="absolute left-0 right-0 top-2/3 h-px bg-gradient-to-r from-transparent via-accent/15 to-transparent" />
 
-          {/* Heading */}
-          <h1 className="mt-8 text-balance text-4xl font-bold tracking-tight text-foreground sm:text-5xl lg:text-6xl">
-            AI4Car — умный OBD2
-            <br />
-            <span className="text-primary">сканер с AI-аналитикой</span>
-          </h1>
-
-          {/* Subtitle */}
-          <p className="mx-auto mt-6 max-w-2xl text-pretty text-lg text-muted-foreground sm:text-xl">
-            Сканируйте ошибки автомобиля, анализируйте их с помощью AI и
-            получайте точные рекомендации по устранению неисправностей.
-          </p>
-
-          {/* CTA Buttons */}
-          <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
-            <Button asChild size="lg">
-              <Link href="/downloads">
-                Скачать приложение
-                <ArrowRight className="h-5 w-5" />
-              </Link>
-            </Button>
-            <Button asChild variant="outline" size="lg">
-              <Link href="/pricing">Посмотреть тарифы</Link>
-            </Button>
-          </div>
-        </div>
-
-        {/* Animated diagnostic visual */}
-        <div className="mt-16 flex justify-center sm:mt-20">
-          <div className="relative">
-            <div className="relative flex h-64 w-64 items-center justify-center rounded-full border border-border bg-muted/30 sm:h-80 sm:w-80">
-              {/* Scanning rings */}
-              <div className="absolute inset-0 animate-pulse rounded-full border-2 border-primary/20" />
-              <div
-                className="absolute inset-4 animate-pulse rounded-full border-2 border-primary/30"
-                style={{ animationDelay: "0.5s" }}
-              />
-              <div
-                className="absolute inset-8 animate-pulse rounded-full border-2 border-primary/40"
-                style={{ animationDelay: "1s" }}
-              />
-
-              {/* Center icon */}
-              <div className="flex h-20 w-20 items-center justify-center rounded-full bg-primary text-primary-foreground shadow-lg sm:h-24 sm:w-24">
-                <Scan className="h-10 w-10 sm:h-12 sm:w-12" />
-              </div>
+      <div className="relative mx-auto max-w-6xl px-4 py-20 sm:px-6 sm:py-28 lg:px-8 lg:py-32">
+        <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
+          {/* Left content */}
+          <div className="text-center lg:text-left">
+            {/* Badge */}
+            <div className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-4 py-2 text-sm text-primary">
+              <Sparkles className="h-4 w-4" />
+              <span>OBD2 диагностика с AI-аналитикой</span>
             </div>
 
-            {/* Floating badges */}
-            <div className="absolute -right-4 top-8 rounded-lg border border-border bg-card px-3 py-2 shadow-md sm:-right-12">
-              <div className="text-xs text-muted-foreground">Код ошибки</div>
-              <div className="font-mono text-sm font-semibold text-foreground">
-                P0420
-              </div>
-            </div>
+            {/* Heading */}
+            <h1 className="mt-8 text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl">
+              <span className="text-foreground">Unified</span>
+              <br />
+              <span className="gradient-text">Vehicle</span>
+              <br />
+              <span className="text-foreground">Diagnostics</span>
+            </h1>
 
-            <div className="absolute -left-4 bottom-12 rounded-lg border border-border bg-card px-3 py-2 shadow-md sm:-left-16">
-              <div className="text-xs text-muted-foreground">AI анализ</div>
-              <div className="text-sm font-medium text-accent">
-                Катализатор
+            {/* Subtitle */}
+            <p className="mx-auto mt-6 max-w-xl text-lg leading-relaxed text-muted-foreground lg:mx-0">
+              Сканируйте ошибки автомобиля, анализируйте их с помощью AI и
+              получайте точные рекомендации по устранению неисправностей в
+              режиме реального времени.
+            </p>
+
+            {/* CTA Buttons */}
+            <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row lg:justify-start">
+              <Button asChild size="lg" variant="glow">
+                <Link href="/downloads">
+                  Скачать приложение
+                  <ArrowRight className="h-5 w-5" />
+                </Link>
+              </Button>
+              <Button asChild variant="glow-accent" size="lg">
+                <Link href="/pricing">Посмотреть тарифы</Link>
+              </Button>
+            </div>
+          </div>
+
+          {/* Right - Isometric car visualization */}
+          <div className="relative flex items-center justify-center lg:justify-end">
+            <div className="relative h-80 w-80 sm:h-96 sm:w-96">
+              {/* Outer subtle ring */}
+              <div className="absolute inset-0 animate-pulse rounded-full border border-primary/15 opacity-60" />
+              
+              {/* Data flow lines */}
+              <svg className="absolute inset-0 h-full w-full" viewBox="0 0 400 400">
+                {/* Curved data lines */}
+                <path
+                  d="M50 300 Q 100 250, 200 200 T 350 100"
+                  fill="none"
+                  stroke="url(#gradient1)"
+                  strokeWidth="2"
+                  className="glow-line animate-pulse"
+                  strokeDasharray="10 5"
+                />
+                <path
+                  d="M30 350 Q 150 300, 200 200 T 380 150"
+                  fill="none"
+                  stroke="url(#gradient2)"
+                  strokeWidth="2"
+                  className="glow-line"
+                  style={{ animationDelay: "0.5s" }}
+                  strokeDasharray="8 4"
+                />
+                <path
+                  d="M80 380 Q 180 320, 220 220 T 370 80"
+                  fill="none"
+                  stroke="url(#gradient3)"
+                  strokeWidth="1.5"
+                  className="glow-line animate-pulse"
+                  style={{ animationDelay: "1s" }}
+                  strokeDasharray="6 6"
+                />
+                
+                <defs>
+                  <linearGradient id="gradient1" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" stopColor="oklch(0.55 0.14 165)" />
+                    <stop offset="100%" stopColor="oklch(0.55 0.12 240)" />
+                  </linearGradient>
+                  <linearGradient id="gradient2" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" stopColor="oklch(0.55 0.12 240)" />
+                    <stop offset="100%" stopColor="oklch(0.55 0.14 165)" />
+                  </linearGradient>
+                  <linearGradient id="gradient3" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" stopColor="oklch(0.60 0.12 165)" />
+                    <stop offset="100%" stopColor="oklch(0.55 0.12 240)" />
+                  </linearGradient>
+                </defs>
+              </svg>
+
+              {/* Isometric car wireframe */}
+              <div className="absolute inset-8 flex items-center justify-center">
+                <svg className="h-full w-full" viewBox="0 0 300 200" fill="none">
+                  {/* Car body outline */}
+                  <path
+                    d="M40 120 L60 100 L100 90 L140 80 L200 80 L240 90 L260 110 L260 130 L40 130 Z"
+                    stroke="oklch(0.55 0.12 240)"
+                    strokeWidth="1.5"
+                    className="glow-line"
+                  />
+                  {/* Roof */}
+                  <path
+                    d="M100 90 L110 60 L190 60 L200 80"
+                    stroke="oklch(0.55 0.12 240)"
+                    strokeWidth="1.5"
+                    className="glow-line"
+                  />
+                  {/* Windows */}
+                  <path
+                    d="M105 88 L112 65 L150 65 L150 85"
+                    stroke="oklch(0.55 0.14 165)"
+                    strokeWidth="1"
+                  />
+                  <path
+                    d="M155 65 L188 65 L195 85 L155 85"
+                    stroke="oklch(0.55 0.14 165)"
+                    strokeWidth="1"
+                  />
+                  {/* Wheels */}
+                  <circle cx="80" cy="135" r="20" stroke="oklch(0.55 0.12 240)" strokeWidth="1.5" className="glow-line" />
+                  <circle cx="80" cy="135" r="12" stroke="oklch(0.55 0.14 165)" strokeWidth="1" />
+                  <circle cx="220" cy="135" r="20" stroke="oklch(0.55 0.12 240)" strokeWidth="1.5" className="glow-line" />
+                  <circle cx="220" cy="135" r="12" stroke="oklch(0.55 0.14 165)" strokeWidth="1" />
+                  {/* OBD port indicator */}
+                  <circle cx="150" cy="120" r="8" fill="oklch(0.55 0.14 165 / 0.2)" stroke="oklch(0.55 0.14 165)" strokeWidth="1.5" className="animate-pulse" />
+                </svg>
+              </div>
+
+              {/* Floating data badges */}
+              <div className="absolute -right-4 top-12 rounded-lg border border-primary/20 bg-card px-4 py-3 shadow-lg sm:-right-8">
+                <div className="text-xs text-muted-foreground">Код ошибки</div>
+                <div className="font-mono text-lg font-bold text-primary">
+                  P0420
+                </div>
+              </div>
+
+              <div className="absolute -left-4 bottom-16 rounded-lg border border-accent/20 bg-card px-4 py-3 shadow-lg sm:-left-12">
+                <div className="text-xs text-muted-foreground">AI анализ</div>
+                <div className="text-sm font-semibold text-accent">
+                  Катализатор
+                </div>
+              </div>
+
+              <div className="absolute bottom-4 right-8 rounded-lg border border-border bg-card px-3 py-2 shadow-lg">
+                <div className="flex items-center gap-2">
+                  <Scan className="h-4 w-4 text-primary" />
+                  <span className="text-xs font-medium text-foreground">Сканирование...</span>
+                </div>
               </div>
             </div>
           </div>

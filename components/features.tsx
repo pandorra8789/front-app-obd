@@ -41,35 +41,46 @@ const features = [
 
 export function Features() {
   return (
-    <section className="border-t border-border bg-muted/20 py-20 sm:py-28">
-      <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+    <section className="relative border-t border-border/50 py-20 sm:py-28">
+      {/* Background elements */}
+      <div className="absolute inset-0 bg-gradient-to-b from-background via-muted/30 to-background" />
+      <div className="absolute inset-0 isometric-grid opacity-10" />
+      
+      <div className="relative mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         {/* Section header */}
         <div className="text-center">
-          <h2 className="text-balance text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
-            Что делает AI4Car
+          <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
+            <span className="text-foreground">Что делает </span>
+            <span className="gradient-text">AI4Car</span>
           </h2>
-          <p className="mx-auto mt-4 max-w-2xl text-pretty text-lg text-muted-foreground">
+          <p className="mx-auto mt-4 max-w-2xl text-lg text-muted-foreground">
             Современные инструменты диагностики с мощью искусственного
             интеллекта для вашего автомобиля.
           </p>
         </div>
 
         {/* Features grid */}
-        <div className="mt-16 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-          {features.map((feature) => (
+        <div className="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {features.map((feature, index) => (
             <div
               key={feature.title}
-              className="group rounded-xl border border-border bg-card p-6 transition-all duration-200 hover:border-primary/30 hover:shadow-md"
+              className="group relative rounded-2xl border border-border/50 bg-card/50 p-6 backdrop-blur-sm transition-all duration-300 hover:border-primary/30 hover:bg-card"
+              style={{ animationDelay: `${index * 100}ms` }}
             >
-              <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10 text-primary transition-colors group-hover:bg-primary group-hover:text-primary-foreground">
-                <feature.icon className="h-6 w-6" />
+              {/* Glow effect on hover */}
+              <div className="absolute inset-0 rounded-2xl opacity-0 transition-opacity duration-300 group-hover:opacity-100" style={{ background: 'radial-gradient(circle at center, oklch(0.55 0.14 165 / 0.08), transparent 70%)' }} />
+              
+              <div className="relative">
+                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 text-primary transition-all duration-300 group-hover:bg-primary group-hover:text-primary-foreground group-hover:glow-primary">
+                  <feature.icon className="h-6 w-6" />
+                </div>
+                <h3 className="mt-5 text-lg font-semibold text-card-foreground">
+                  {feature.title}
+                </h3>
+                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                  {feature.description}
+                </p>
               </div>
-              <h3 className="mt-4 text-lg font-semibold text-card-foreground">
-                {feature.title}
-              </h3>
-              <p className="mt-2 text-sm text-muted-foreground">
-                {feature.description}
-              </p>
             </div>
           ))}
         </div>

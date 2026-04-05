@@ -23,7 +23,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#3d8bbd",
+  themeColor: "#1a1a2e",
   width: "device-width",
   initialScale: 1,
 };
@@ -34,7 +34,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ru">
+    <html lang="ru" className="dark">
       <body className={`${inter.variable} ${geistMono.variable} font-sans`}>
         <Header />
         <main>{children}</main>
