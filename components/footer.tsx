@@ -19,11 +19,15 @@ const footerLinks = {
 
 export function Footer() {
   return (
-    <footer className="relative border-t border-border/50">
-      {/* CTA Section - Like "Reddit to transform your data infrastructure" */}
-      <div className="relative overflow-hidden bg-gradient-to-b from-background to-muted/30 py-16 sm:py-20">
-        <div className="absolute inset-0 isometric-grid opacity-10" />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,oklch(0.55_0.14_165_/_0.08),transparent_70%)]" />
+    <footer className="relative">
+      {/* CTA Section - seamless transition from pricing */}
+      <div className="relative overflow-hidden py-20 sm:py-28">
+        {/* Continuous grid background - matches previous sections */}
+        <div className="absolute inset-0 isometric-grid opacity-15" />
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-background/60 to-muted/40" />
+        
+        {/* Subtle radial glow */}
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,oklch(0.55_0.14_165_/_0.06),transparent_60%)]" />
         
         <div className="relative mx-auto max-w-3xl px-4 text-center sm:px-6 lg:px-8">
           <h2 className="text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">
@@ -47,8 +51,11 @@ export function Footer() {
         </div>
       </div>
 
-      {/* Footer links */}
-      <div className="bg-muted/20">
+      {/* Footer links - subtle separator */}
+      <div className="relative bg-muted/30">
+        {/* Very subtle top line instead of hard border */}
+        <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-border/50 to-transparent" />
+        
         <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 gap-8 md:grid-cols-4">
             {/* Brand */}
@@ -124,7 +131,9 @@ export function Footer() {
             </div>
           </div>
 
-          <div className="mt-12 border-t border-border/50 pt-8">
+          <div className="mt-12 pt-8">
+            {/* Subtle separator */}
+            <div className="mb-8 h-px bg-gradient-to-r from-transparent via-border/40 to-transparent" />
             <p className="text-center text-sm text-muted-foreground">
               &copy; {new Date().getFullYear()} AI4Car. Все права защищены.
             </p>
