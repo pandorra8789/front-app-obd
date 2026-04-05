@@ -53,8 +53,9 @@ const pricingTiers: PricingTier[] = [
 export function PricingPreview() {
   return (
     <section className="relative py-20 sm:py-28">
-      {/* Background */}
-      <div className="absolute inset-0 bg-gradient-to-t from-muted/20 via-transparent to-transparent" />
+      {/* Seamless background continuation - no hard edges */}
+      <div className="absolute inset-0 isometric-grid opacity-20" />
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-background/50 to-background/70" />
       
       <div className="relative mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         {/* Section header */}
