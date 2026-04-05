@@ -24,7 +24,7 @@ export function PricingCard({ tier }: PricingCardProps) {
       className={cn(
         "relative flex flex-col rounded-2xl border p-6 backdrop-blur-sm transition-all duration-300 sm:p-8",
         tier.highlighted
-          ? "border-primary/50 bg-gradient-to-b from-primary/10 to-card glow-orange"
+          ? "border-primary/50 bg-gradient-to-b from-primary/10 to-card glow-primary"
           : "border-border/50 bg-card/50 hover:border-primary/30 hover:bg-card"
       )}
     >

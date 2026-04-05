@@ -68,10 +68,10 @@ export function Features() {
               style={{ animationDelay: `${index * 100}ms` }}
             >
               {/* Glow effect on hover */}
-              <div className="absolute inset-0 rounded-2xl opacity-0 transition-opacity duration-300 group-hover:opacity-100" style={{ background: 'radial-gradient(circle at center, oklch(0.70 0.18 30 / 0.05), transparent 70%)' }} />
+              <div className="absolute inset-0 rounded-2xl opacity-0 transition-opacity duration-300 group-hover:opacity-100" style={{ background: 'radial-gradient(circle at center, oklch(0.55 0.14 165 / 0.08), transparent 70%)' }} />
               
               <div className="relative">
-                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 text-primary transition-all duration-300 group-hover:bg-primary group-hover:text-primary-foreground group-hover:glow-orange">
+                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 text-primary transition-all duration-300 group-hover:bg-primary group-hover:text-primary-foreground group-hover:glow-primary">
                   <feature.icon className="h-6 w-6" />
                 </div>
                 <h3 className="mt-5 text-lg font-semibold text-card-foreground">

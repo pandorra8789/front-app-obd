@@ -7,17 +7,17 @@ import { ArrowRight, Scan, Sparkles } from "lucide-react";
 export function Hero() {
   return (
     <section className="relative min-h-[90vh] overflow-hidden bg-background">
-      {/* Isometric grid background */}
-      <div className="absolute inset-0 isometric-grid opacity-30" />
+      {/* Subtle grid background */}
+      <div className="absolute inset-0 isometric-grid opacity-40" />
       
       {/* Gradient overlays */}
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-background/50 to-background" />
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,oklch(0.70_0.18_30_/_0.15),transparent_50%)]" />
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,oklch(0.65_0.15_200_/_0.1),transparent_50%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,oklch(0.55_0.14_165_/_0.08),transparent_50%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,oklch(0.55_0.12_240_/_0.06),transparent_50%)]" />
 
-      {/* Animated glow lines */}
-      <div className="absolute left-0 right-0 top-1/3 h-px bg-gradient-to-r from-transparent via-primary/50 to-transparent" />
-      <div className="absolute left-0 right-0 top-2/3 h-px bg-gradient-to-r from-transparent via-accent/30 to-transparent" />
+      {/* Decorative lines */}
+      <div className="absolute left-0 right-0 top-1/3 h-px bg-gradient-to-r from-transparent via-primary/20 to-transparent" />
+      <div className="absolute left-0 right-0 top-2/3 h-px bg-gradient-to-r from-transparent via-accent/15 to-transparent" />
 
       <div className="relative mx-auto max-w-6xl px-4 py-20 sm:px-6 sm:py-28 lg:px-8 lg:py-32">
         <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
@@ -53,7 +53,7 @@ export function Hero() {
                   <ArrowRight className="h-5 w-5" />
                 </Link>
               </Button>
-              <Button asChild variant="outline" size="lg">
+              <Button asChild variant="glow-accent" size="lg">
                 <Link href="/pricing">Посмотреть тарифы</Link>
               </Button>
             </div>
@@ -62,8 +62,8 @@ export function Hero() {
           {/* Right - Isometric car visualization */}
           <div className="relative flex items-center justify-center lg:justify-end">
             <div className="relative h-80 w-80 sm:h-96 sm:w-96">
-              {/* Outer glow ring */}
-              <div className="absolute inset-0 animate-pulse rounded-full border border-primary/20 glow-orange opacity-50" />
+              {/* Outer subtle ring */}
+              <div className="absolute inset-0 animate-pulse rounded-full border border-primary/15 opacity-60" />
               
               {/* Data flow lines */}
               <svg className="absolute inset-0 h-full w-full" viewBox="0 0 400 400">
@@ -97,16 +97,16 @@ export function Hero() {
                 
                 <defs>
                   <linearGradient id="gradient1" x1="0%" y1="0%" x2="100%" y2="0%">
-                    <stop offset="0%" stopColor="oklch(0.70 0.18 30)" />
-                    <stop offset="100%" stopColor="oklch(0.65 0.15 200)" />
+                    <stop offset="0%" stopColor="oklch(0.55 0.14 165)" />
+                    <stop offset="100%" stopColor="oklch(0.55 0.12 240)" />
                   </linearGradient>
                   <linearGradient id="gradient2" x1="0%" y1="0%" x2="100%" y2="0%">
-                    <stop offset="0%" stopColor="oklch(0.65 0.15 200)" />
-                    <stop offset="100%" stopColor="oklch(0.70 0.18 30)" />
+                    <stop offset="0%" stopColor="oklch(0.55 0.12 240)" />
+                    <stop offset="100%" stopColor="oklch(0.55 0.14 165)" />
                   </linearGradient>
                   <linearGradient id="gradient3" x1="0%" y1="0%" x2="100%" y2="0%">
-                    <stop offset="0%" stopColor="oklch(0.80 0.15 50)" />
-                    <stop offset="100%" stopColor="oklch(0.65 0.15 200)" />
+                    <stop offset="0%" stopColor="oklch(0.60 0.12 165)" />
+                    <stop offset="100%" stopColor="oklch(0.55 0.12 240)" />
                   </linearGradient>
                 </defs>
               </svg>
@@ -117,54 +117,54 @@ export function Hero() {
                   {/* Car body outline */}
                   <path
                     d="M40 120 L60 100 L100 90 L140 80 L200 80 L240 90 L260 110 L260 130 L40 130 Z"
-                    stroke="oklch(0.65 0.15 200)"
+                    stroke="oklch(0.55 0.12 240)"
                     strokeWidth="1.5"
                     className="glow-line"
                   />
                   {/* Roof */}
                   <path
                     d="M100 90 L110 60 L190 60 L200 80"
-                    stroke="oklch(0.65 0.15 200)"
+                    stroke="oklch(0.55 0.12 240)"
                     strokeWidth="1.5"
                     className="glow-line"
                   />
                   {/* Windows */}
                   <path
                     d="M105 88 L112 65 L150 65 L150 85"
-                    stroke="oklch(0.70 0.18 30)"
+                    stroke="oklch(0.55 0.14 165)"
                     strokeWidth="1"
                   />
                   <path
                     d="M155 65 L188 65 L195 85 L155 85"
-                    stroke="oklch(0.70 0.18 30)"
+                    stroke="oklch(0.55 0.14 165)"
                     strokeWidth="1"
                   />
                   {/* Wheels */}
-                  <circle cx="80" cy="135" r="20" stroke="oklch(0.65 0.15 200)" strokeWidth="1.5" className="glow-line" />
-                  <circle cx="80" cy="135" r="12" stroke="oklch(0.70 0.18 30)" strokeWidth="1" />
-                  <circle cx="220" cy="135" r="20" stroke="oklch(0.65 0.15 200)" strokeWidth="1.5" className="glow-line" />
-                  <circle cx="220" cy="135" r="12" stroke="oklch(0.70 0.18 30)" strokeWidth="1" />
+                  <circle cx="80" cy="135" r="20" stroke="oklch(0.55 0.12 240)" strokeWidth="1.5" className="glow-line" />
+                  <circle cx="80" cy="135" r="12" stroke="oklch(0.55 0.14 165)" strokeWidth="1" />
+                  <circle cx="220" cy="135" r="20" stroke="oklch(0.55 0.12 240)" strokeWidth="1.5" className="glow-line" />
+                  <circle cx="220" cy="135" r="12" stroke="oklch(0.55 0.14 165)" strokeWidth="1" />
                   {/* OBD port indicator */}
-                  <circle cx="150" cy="120" r="8" fill="oklch(0.70 0.18 30 / 0.3)" stroke="oklch(0.70 0.18 30)" strokeWidth="1.5" className="animate-pulse" />
+                  <circle cx="150" cy="120" r="8" fill="oklch(0.55 0.14 165 / 0.2)" stroke="oklch(0.55 0.14 165)" strokeWidth="1.5" className="animate-pulse" />
                 </svg>
               </div>
 
               {/* Floating data badges */}
-              <div className="absolute -right-4 top-12 rounded-lg border border-primary/30 bg-card/90 px-4 py-3 shadow-lg backdrop-blur-sm sm:-right-8">
+              <div className="absolute -right-4 top-12 rounded-lg border border-primary/20 bg-card px-4 py-3 shadow-lg sm:-right-8">
                 <div className="text-xs text-muted-foreground">Код ошибки</div>
                 <div className="font-mono text-lg font-bold text-primary">
                   P0420
                 </div>
               </div>
 
-              <div className="absolute -left-4 bottom-16 rounded-lg border border-accent/30 bg-card/90 px-4 py-3 shadow-lg backdrop-blur-sm sm:-left-12">
+              <div className="absolute -left-4 bottom-16 rounded-lg border border-accent/20 bg-card px-4 py-3 shadow-lg sm:-left-12">
                 <div className="text-xs text-muted-foreground">AI анализ</div>
                 <div className="text-sm font-semibold text-accent">
                   Катализатор
                 </div>
               </div>
 
-              <div className="absolute bottom-4 right-8 rounded-lg border border-border bg-card/90 px-3 py-2 shadow-lg backdrop-blur-sm">
+              <div className="absolute bottom-4 right-8 rounded-lg border border-border bg-card px-3 py-2 shadow-lg">
                 <div className="flex items-center gap-2">
                   <Scan className="h-4 w-4 text-primary" />
                   <span className="text-xs font-medium text-foreground">Сканирование...</span>

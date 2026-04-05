@@ -23,7 +23,7 @@ export function Footer() {
       {/* CTA Section - Like "Reddit to transform your data infrastructure" */}
       <div className="relative overflow-hidden bg-gradient-to-b from-background to-muted/30 py-16 sm:py-20">
         <div className="absolute inset-0 isometric-grid opacity-10" />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,oklch(0.70_0.18_30_/_0.1),transparent_70%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,oklch(0.55_0.14_165_/_0.08),transparent_70%)]" />
         
         <div className="relative mx-auto max-w-3xl px-4 text-center sm:px-6 lg:px-8">
           <h2 className="text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">

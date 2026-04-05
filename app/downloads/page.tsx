@@ -91,7 +91,7 @@ export default function DownloadsPage() {
               key={option.platform}
               className={`relative flex flex-col rounded-2xl border p-6 backdrop-blur-sm transition-all duration-300 sm:p-8 ${
                 option.recommended
-                  ? "border-primary/50 bg-gradient-to-b from-primary/10 to-card glow-orange"
+                  ? "border-primary/50 bg-gradient-to-b from-primary/10 to-card glow-primary"
                   : "border-border/50 bg-card/50 hover:border-primary/30 hover:bg-card"
               }`}
             >
@@ -103,7 +103,7 @@ export default function DownloadsPage() {
 
               <div className={`flex h-14 w-14 items-center justify-center rounded-xl ${
                 option.recommended 
-                  ? "bg-primary text-primary-foreground glow-orange" 
+                  ? "bg-primary text-primary-foreground glow-primary" 
                   : "bg-primary/10 text-primary"
               }`}>
                 <option.icon className="h-7 w-7" />
@@ -175,7 +175,7 @@ export default function DownloadsPage() {
             {steps.map((item, index) => (
               <div key={item.step} className="group text-center">
                 <div className="relative mx-auto">
-                  <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl bg-primary text-xl font-bold text-primary-foreground transition-all duration-300 group-hover:glow-orange">
+                  <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl bg-primary text-xl font-bold text-primary-foreground transition-all duration-300 group-hover:glow-primary">
                     {item.step}
                   </div>
                   {index < steps.length - 1 && (

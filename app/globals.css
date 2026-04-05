@@ -4,35 +4,35 @@
   --font-sans: var(--font-inter);
   --font-mono: var(--font-geist-mono);
 
-  /* Dark isometric data platform theme */
-  --color-background: oklch(0.13 0.03 260);
-  --color-foreground: oklch(0.95 0 0);
-  --color-muted: oklch(0.18 0.02 260);
-  --color-muted-foreground: oklch(0.65 0.02 260);
-  --color-border: oklch(0.25 0.03 260);
-  --color-input: oklch(0.20 0.02 260);
-  --color-ring: oklch(0.70 0.18 30);
+  /* Light milky/cream theme with soft blue and green accents */
+  --color-background: oklch(0.97 0.005 80);
+  --color-foreground: oklch(0.20 0.02 260);
+  --color-muted: oklch(0.94 0.008 80);
+  --color-muted-foreground: oklch(0.45 0.02 260);
+  --color-border: oklch(0.88 0.01 260);
+  --color-input: oklch(0.95 0.005 80);
+  --color-ring: oklch(0.55 0.15 160);
 
-  /* Primary - Orange accent */
-  --color-primary: oklch(0.70 0.18 30);
-  --color-primary-foreground: oklch(0.15 0 0);
+  /* Primary - Soft teal/green */
+  --color-primary: oklch(0.55 0.14 165);
+  --color-primary-foreground: oklch(0.99 0 0);
   
-  /* Secondary - Dark blue */
-  --color-secondary: oklch(0.22 0.04 260);
-  --color-secondary-foreground: oklch(0.90 0 0);
+  /* Secondary - Soft blue */
+  --color-secondary: oklch(0.92 0.01 240);
+  --color-secondary-foreground: oklch(0.35 0.08 240);
   
-  /* Accent - Cyan/teal glow */
-  --color-accent: oklch(0.65 0.15 200);
-  --color-accent-foreground: oklch(0.12 0 0);
+  /* Accent - Soft blue */
+  --color-accent: oklch(0.55 0.12 240);
+  --color-accent-foreground: oklch(0.99 0 0);
   
-  --color-destructive: oklch(0.55 0.20 25);
+  --color-destructive: oklch(0.55 0.18 25);
   --color-destructive-foreground: oklch(1 0 0);
 
-  /* Card - Slightly lighter dark */
-  --color-card: oklch(0.16 0.025 260);
-  --color-card-foreground: oklch(0.92 0 0);
-  --color-popover: oklch(0.16 0.025 260);
-  --color-popover-foreground: oklch(0.92 0 0);
+  /* Card - White with subtle warmth */
+  --color-card: oklch(0.995 0.003 80);
+  --color-card-foreground: oklch(0.22 0.02 260);
+  --color-popover: oklch(0.995 0.003 80);
+  --color-popover-foreground: oklch(0.22 0.02 260);
 
   --radius: 0.75rem;
 }
@@ -53,22 +53,22 @@
   }
 }
 
-/* Glow effects */
+/* Glow effects for light theme */
 @layer utilities {
-  .glow-orange {
-    box-shadow: 0 0 20px oklch(0.70 0.18 30 / 0.3), 0 0 40px oklch(0.70 0.18 30 / 0.15);
+  .glow-primary {
+    box-shadow: 0 4px 20px oklch(0.55 0.14 165 / 0.25), 0 2px 8px oklch(0.55 0.14 165 / 0.15);
   }
   
-  .glow-cyan {
-    box-shadow: 0 0 20px oklch(0.65 0.15 200 / 0.3), 0 0 40px oklch(0.65 0.15 200 / 0.15);
+  .glow-accent {
+    box-shadow: 0 4px 20px oklch(0.55 0.12 240 / 0.25), 0 2px 8px oklch(0.55 0.12 240 / 0.15);
   }
   
   .glow-line {
-    filter: drop-shadow(0 0 6px currentColor);
+    filter: drop-shadow(0 0 4px currentColor);
   }
   
   .gradient-text {
-    background: linear-gradient(135deg, oklch(0.70 0.18 30), oklch(0.80 0.15 50));
+    background: linear-gradient(135deg, oklch(0.55 0.14 165), oklch(0.55 0.12 240));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -87,18 +87,18 @@
 
 @layer utilities {
   .animated-border {
-    background: linear-gradient(90deg, oklch(0.70 0.18 30), oklch(0.65 0.15 200), oklch(0.70 0.18 30));
+    background: linear-gradient(90deg, oklch(0.55 0.14 165), oklch(0.55 0.12 240), oklch(0.55 0.14 165));
     background-size: 200% 200%;
     animation: gradient-flow 3s ease infinite;
   }
 }
 
-/* Isometric grid background */
+/* Subtle grid background for light theme */
 @layer utilities {
   .isometric-grid {
     background-image: 
-      linear-gradient(oklch(0.25 0.03 260 / 0.5) 1px, transparent 1px),
-      linear-gradient(90deg, oklch(0.25 0.03 260 / 0.5) 1px, transparent 1px);
+      linear-gradient(oklch(0.88 0.01 260 / 0.6) 1px, transparent 1px),
+      linear-gradient(90deg, oklch(0.88 0.01 260 / 0.6) 1px, transparent 1px);
     background-size: 40px 40px;
   }
 }
