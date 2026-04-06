@@ -4,6 +4,7 @@ import "./globals.css";
 import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
 import { CookieBanner } from "@/components/cookie-banner";
+import { AuthProvider } from "@/lib/auth-context";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -36,10 +37,12 @@ export default function RootLayout({
   return (
     <html lang="ru" className="dark">
       <body className={`${inter.variable} ${geistMono.variable} font-sans`}>
-        <Header />
-        <main>{children}</main>
-        <Footer />
-        <CookieBanner />
+        <AuthProvider>
+          <Header />
+          <main>{children}</main>
+          <Footer />
+          <CookieBanner />
+        </AuthProvider>
       </body>
     </html>
   );
